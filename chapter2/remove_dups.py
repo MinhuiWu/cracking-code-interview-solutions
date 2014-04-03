@@ -2,7 +2,7 @@
 
 __author__ = 'Rio'
 
-from LinkedList import Node
+from LinkedList import *
 
 def remove_dups_dict(lst):
     '''
@@ -43,11 +43,19 @@ def remove_dups(lst):
     previous = None
     found = False
     while current and not found:
-        if current.value = current.next.value:
+        if current.value == current.next.value:
             found = True
         previous, current = current, current.next
 
     if not previous and found:
         lst = lst.next
-    else
+    else:
         previous.next = current.next
+
+
+if __name__ == "__main__":
+    lst = random_list(10, 0, 5)
+    print lst
+    print "Start to remove dups"
+    remove_dups(lst.head())
+    print lst
