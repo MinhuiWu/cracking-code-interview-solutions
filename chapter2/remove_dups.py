@@ -23,9 +23,10 @@ def remove_dups_dict(lst):
     current = lst
     content = {current.value: True}
 
-    while current:
-        if current.value not in content:
-            content[current.value] = True
+    while current.next != None:
+        if current.next.value not in content:
+            content[current.next.value] = True
+            current = current.next
         else:
             current.next = current.next.next
 
@@ -33,29 +34,39 @@ def remove_dups(lst):
     '''
     Remove duplicates from a linked list.
 
-    Time Complexity: O(n), where n means the number of linked list.
+    Time Complexity: O(n^2), where n means the number of linked list.
     Space Compexity: O(1), no additional sapce is needed.
     '''
     if not lst:
         return None
 
     current = lst
-    previous = None
-    found = False
-    while current and not found:
-        if current.value == current.next.value:
-            found = True
-        previous, current = current, current.next
-
-    if not previous and found:
-        lst = lst.next
-    else:
-        previous.next = current.next
+    while current:
+        runner = current
+        while runner.next != None:
+            if runner.next.value == current.value:
+                runner.next = runner.next.next
+            else:
+                runner = runner.next
+        current = current.next
 
 
 if __name__ == "__main__":
-    lst = random_list(10, 0, 5)
-    print lst
-    print "Start to remove dups"
-    remove_dups(lst.head())
-    print lst
+    l = Node(0, Node(1, Node(2, Node(3, Node(4, Node(5, Node(5, Node(6))))))))
+    current = l
+    while current:
+        print current.value,
+        current = current.next
+
+
+    remove_dups_dict(l)
+    current = l
+    while current:
+        print current.value
+        current = current.next
+
+    remove_dups(l)
+    current = l
+    while current:
+        print current.value
+        current = current.next

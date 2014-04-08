@@ -56,3 +56,16 @@ def find_kth_reverse_list(lst, k):
         k -= 1
 
     return last.value
+
+if __name__ == "__main__":
+    l = Node(0, Node(1, Node(2, Node(3, Node(4, Node(5, Node(5, Node(6))))))))
+    current = l
+    while current:
+        print current.value,
+        current = current.next
+
+    print
+
+    print find_kth(l, 2)
+    print find_kth_stack(l, 2)
+    print find_kth_reverse_list(l, 2)
