@@ -1,7 +1,7 @@
 /**
  * Rotate a matrix clockwise.
  */
-public class Solution5 {
+public class Solution6 {
 	/**
 	 * Solution:
 	 * We can use standard Matrix Rotation algorithm.
@@ -33,14 +33,14 @@ public class Solution5 {
 
 	public static void main(String[] args){
 	    int[][] mat = {
-	        { 1, 2, 3 },
-	        { 4, 5, 6 }
+	        { 1, 2},
+	        { 4, 5}
 	    };
 	    printMatrix(mat);
 	    // Matrix = 
 	    // [1, 2, 3]
 	    // [4, 5, 6]
-	    printMatrix(rotateClockwise(mat));
-
+	    int[][] result = rotateClockwise(mat);
+	    printMatrix(result);
 	}
 }
