@@ -16,7 +16,7 @@ public class Solution4 {
 	/**
 	 * Solution:
 	 * Iterate through the string, once we encounter a white space, replace it
-	 * with %20 and store it in a StringBuffer.
+	 * with %20 and store it in a StringBuilder.
      *
 	 * Analysis:
 	 * Time Complexity: O(N), where N means the length of the string
@@ -25,7 +25,7 @@ public class Solution4 {
 	public static String replaceSpaces2(String str) {
 		if (str == null) return str;
 
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < str.length(); i++) {
 			if (str.charAt(i) == ' ') {
 				sb.append("%20");
