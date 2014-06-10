@@ -23,17 +23,10 @@ public class Solution4 {
 	 * Space Complexity: O(N), we need a extra buffer to store the new one.
 	 */
 	public static String replaceSpaces2(String str) {
-		if (str == null) return str;
-
+		if (str == null) return null;
 		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < str.length(); i++) {
-			if (str.charAt(i) == ' ') {
-				sb.append("%20");
-			} else {
-				sb.append(str.charAt(i));
-			}
-		}
-
+		for (char c : str.toCharArray()) 
+			c == ' ' ? sb.append("%20") : sb.append(c);
 		return sb.toString();
 	}
 

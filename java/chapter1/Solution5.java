@@ -1,46 +1,42 @@
 /**
- * Rotate a matrix clockwise.
+ * Compress data
  */
 public class Solution5 {
+
 	/**
-	 * Solution:
-	 * We can use standard Matrix Rotation algorithm.
+	 * Solution: 
+	 * 1. Insert the picked character from source into the destination string
+	 * 2. Count the number of subsequent occurences and append it to the destination.
+	 * 3. Pick the next character and repeat.
+	 * 
+	 * Analysis:
+	 * Time Complexity: O(N)
+	 * Space Complexity: O(N), for worst case we need 2N spaces to store all different chars.
 	 */
-	public static int[][] rotateClockwise(int[][] matrix) {
-	 	final int M = matrix.length;
-	 	final int N = matrix[0].length;
-
-	 	if (M < 0 || N < 0) {
-	 		throw new IllegalArgumentException();
-	 	}
-
-	 	int[][] result = new int[N][M];
-	 	for (int r = 0; r < M; r++) {
-	 		for (int c = 0; c < N; c++) {
-	 			result[c][M - 1 - r] = matrix[r][c];
-	 		}
-	 	}
-
-	 	return result;
-	}
-
-	private static void printMatrix(int[][] matrix) {
-		System.out.println("Matrix = ");
-		for (int[] row: matrix) {
-			System.out.println(java.util.Arrays.toString(row));
+	public static String compress(String str) {
+		if (str == null) {
+			return null;
 		}
+
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < str.length(); i++) {
+			sb.append(str.charAt(i));
+	
+			int length = 1;
+			while (i + 1 < str.length() && str.charAt(i) == str.charAt(i + 1)) {
+				length++;
+				i++;
+			}
+			sb.append(length);
+		}
+
+		return sb.toString();
+
 	}
 
 	public static void main(String[] args){
-	    int[][] mat = {
-	        { 1, 2, 3 },
-	        { 4, 5, 6 }
-	    };
-	    printMatrix(mat);
-	    // Matrix = 
-	    // [1, 2, 3]
-	    // [4, 5, 6]
-	    printMatrix(rotateClockwise(mat));
+		String str = "abcde";
+		System.out.println(compress(str));
 
 	}
 }
