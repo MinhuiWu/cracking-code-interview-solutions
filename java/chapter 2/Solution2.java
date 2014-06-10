@@ -68,7 +68,6 @@ public class Solution2 {
 
     }
 
-
     public static void main(String[] args) {
         ListNode head = ListNode.build(10);
         ListNode.printList(head);
