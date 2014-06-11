@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 def is_unique_dict(str):
     '''
@@ -10,12 +11,12 @@ def is_unique_dict(str):
     if not str or len(str) <= 1:
         return True
 
-    content = {}
+    content = set()
     for chr in str:
         if chr in content:
             return False
         else:
-            content[chr] = True
+            content.add(chr)
 
     return True
 
@@ -41,4 +42,3 @@ def is_unique_set(str):
     Leverage the feature of set - all elements must be unique.
     '''
     return len(str) == len(set(str))
-

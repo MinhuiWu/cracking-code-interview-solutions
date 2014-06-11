@@ -14,7 +14,7 @@ def reverse_lst(str):
     '''
     if not str:
         return None
-    return ''.join([str[i] for i in range(len(str)-1, -1, -1)])
+    return ''.join([str[i] for i in xrange(len(str)-1, -1, -1)])
 
 def reverse_recursive(str):
     '''
