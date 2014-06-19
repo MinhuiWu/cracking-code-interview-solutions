@@ -12,4 +12,8 @@ public class TreeNode {
         this.left = left;
         this.right = right;
     }
+
+    public void setLeft(TreeNode left) { this.left = left; }
+
+    public void setRight(TreeNode right) { this.right = right; }
 }
