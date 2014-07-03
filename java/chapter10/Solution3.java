@@ -13,19 +13,35 @@ public class Solution3 {
         if (nums == null || nums.length == 0) {
             return -1;
         }
-        return searchHelper(nums, target, 0, nums.length - 1);
+
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2; // avoid overflow
+
+            if (target == nums[mid]) return mid;
+
+            if (nums[left] <= nums[right]) { // left halve is sorted.
+                if (nums[left] <= target && target < nums[mid]) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+            } else {
+                if (nums[mid] < target && target <= nums[right]) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+        }
+
+        return -1;
     }
 
-    private static int searchHelper(int[] nums, int target, int low, int high) {
-        if (low > high) {
-            return -1;
-        }
-
-        int midIndex = low + (high - low) / 2;
-        int mid = nums[minIndex];
-        if (mid == target) {
-            return minIndex;
-        }
-        if (nums[low])
+    public static void main(String[] args) {
+        int[] data = {4, 5, 6, 7, 0, 1, 2};
+        System.out.println(search(data, 3));
     }
 }
