@@ -8,9 +8,7 @@ public class Solution4 {
 	 * Time Complexity: O(N), where N means the length of string
 	 */
 	public static String replaceSpaces(String str) {
-		if (str == null) return str;
-
-		return str.replaceAll(" ", "%20");
+		return str == null ? str : str.replaceAll(" ", "%20");
 	}
 
 	/**
