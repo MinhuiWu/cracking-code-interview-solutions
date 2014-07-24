@@ -68,12 +68,14 @@ public class Solution1 {
 			return true;
 		}
 
-		HashSet<Character> content = new HashSet<Character>();
-		for (int i = 0; i < str.length(); i++) {
-			if (content.contains(str.charAt(i))) {
+		HashSet<Integer> content = new HashSet<Integer>();
+		for (int i = 0; i < str.length();) {
+			final int point = str.codePointAt(i);
+			if (content.contains(point)) {
 				return false;
 			}
-			content.add(str.charAt(i));
+			content.add(point);
+			i += Character.charCount(point);
 		}
 
 		return true;
