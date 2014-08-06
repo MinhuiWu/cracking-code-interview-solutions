@@ -29,8 +29,8 @@ public class Solution5 {
             return false;
         }
 
-        if (isBSTHelper(node.left, min, node.value)
-            || isBSTHelper(node.right, node.value, max)) {
+        if (！isBSTHelper(node.left, min, node.value)
+            || ！isBSTHelper(node.right, node.value, max)) {
             return false;
         }
 
